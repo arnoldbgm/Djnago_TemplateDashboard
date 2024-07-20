@@ -1,6 +1,12 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
+  <script>
+    function submitLogoutForm(event) {
+      event.preventDefault();
+      document.getElementById("logout-form").submit();
+    }
+  </script>
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -358,7 +364,7 @@
                     <div class="dropdown-list-image mr-3">
                       <img
                         class="rounded-circle"
-                        src= "{% static  'base/img/undraw_profile_1.svg' %}"
+                        src="{% static  'base/img/undraw_profile_1.svg' %}"
                         alt="..."
                       />
                       <div class="status-indicator bg-success"></div>
@@ -375,7 +381,7 @@
                     <div class="dropdown-list-image mr-3">
                       <img
                         class="rounded-circle"
-                        src= "{% static  'base/img/undraw_profile_2.svg' %}"
+                        src="{% static  'base/img/undraw_profile_2.svg' %}"
                         alt="..."
                       />
                       <div class="status-indicator"></div>
@@ -392,7 +398,7 @@
                     <div class="dropdown-list-image mr-3">
                       <img
                         class="rounded-circle"
-                        src= "{% static  'base/img/undraw_profile_3.svg' %}"
+                        src="{% static  'base/img/undraw_profile_3.svg' %}"
                         alt="..."
                       />
                       <div class="status-indicator bg-warning"></div>
@@ -451,7 +457,7 @@
                   >
                   <img
                     class="img-profile rounded-circle"
-                    src= "{% static  'base/img/undraw_profile.svg' %}"
+                    src="{% static  'base/img/undraw_profile.svg' %}"
                   />
                 </a>
                 <!-- Dropdown - User Information -->
@@ -561,7 +567,23 @@
             >
               Cancel
             </button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <!-- Enlace de logout -->
+            <a
+              class="btn btn-primary"
+              href="#"
+              onclick="submitLogoutForm(event)"
+              >Salir</a
+            >
+
+            <!-- Formulario de logout oculto -->
+            <form
+              id="logout-form"
+              method="post"
+              action="{% url 'bases:logout' %}"
+              style="display: none"
+            >
+              {% csrf_token %}
+            </form>
           </div>
         </div>
       </div>

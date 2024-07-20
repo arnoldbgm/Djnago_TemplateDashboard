@@ -118,5 +118,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Cuando el usuario se halla logeado que sea redirigido a 
+# Cuando el usuario se haya logeado que sea redirigido a 
 LOGIN_REDIRECT_URL = '/'
+# Cuando quieras deslogearte y quieras que te mande a un lugar específico le decimos que nos envíe a esta ruta
+LOGOUT_REDIRECT_URL =  '/login/'

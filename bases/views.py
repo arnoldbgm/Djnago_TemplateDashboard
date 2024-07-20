@@ -6,4 +6,4 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 class Home(LoginRequiredMixin, generic.TemplateView):
     template_name = 'bases/home.html'
     # Si no esta registrado mi usario le dire que se vaya al ..
-    login_url='/admin'
+    login_url='bases:login'
